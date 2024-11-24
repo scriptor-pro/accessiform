@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessible RGAA-compliant form">
+    <title>RGAA Compliant Accessible Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        header, main, article, aside, footer {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+        aside {
+            background-color: #f3f3f3;
+            font-size: 0.9em;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        button {
+            background-color: #0056b3;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #003f7f;
+        }
+        button:focus {
+            outline: 3px solid #ffa500;
+            outline-offset: 2px;
+        }
+        .required::after {
+            content: " *";
+            color: red;
+            font-weight: normal;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -12px;
+            margin-bottom: 16px;
+            display: none; /* Initially hidden */
+        }
+        .hint {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: -12px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Accessible RGAA-Compliant Form</h1>
+    </header>
+    <main>
+        <article>
+            <h2>Form Section</h2>
+            <p>Please fill out the form below. Fields marked with an asterisk (*) are required.</p>
+            <form action="/submit" method="post" novalidate>
+                <!-- Error Message Container -->
+                <div aria-live="polite" id="error-container" class="error-message">
+                    Please correct the errors highlighted below.
+                </div>
+
+                <!-- Text -->
+                <label for="text-input" class="required">Text:</label>
+                <input type="text" id="text-input" name="text" placeholder="Enter text here" required aria-required="true">
+                <div class="error-message" id="text-error">This field is required.</div>
+
+                <!-- Email -->
+                <label for="email-input" class="required">Email:</label>
+                <input type="email" id="email-input" name="email" placeholder="Enter your email address" required aria-required="true">
+                <div class="error-message" id="email-error">Please enter a valid email address.</div>
+
+                <!-- Date -->
+                <label for="date-input" class="required">Date:</label>
+                <input type="date" id="date-input" name="date" required aria-required="true">
+                <div class="error-message" id="date-error">This field is required.</div>
+                <p class="hint">Expected format: YYYY-MM-DD (e.g., 2024-11-24).</p>
+
+                <!-- Month Input -->
+<label for="month-input">Select a month:</label>
+<input 
+    type="month" 
+    id="month-input" 
+    name="month" 
+    aria-describedby="month-hint">
+<p id="month-hint" class="hint">Format: YYYY-MM (e.g., 2024-11).</p>
+
+<!-- Week Input -->
+<label for="week-input">Select a week:</label>
+<input 
+    type="week" 
+    id="week-input" 
+    name="week" 
+    aria-describedby="week-hint">
+<p id="week-hint" class="hint">Format: YYYY-Www (e.g., 2024-W47).</p>
+
+
+
+                <!-- Radio -->
+              
+                <fieldset>
+                    <legend>Choose one option:</legend>
+                    <div>
+                        <input type="radio" id="radio1" name="choice" value="choice1" required>
+                        <label for="radio1">Option 1</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="radio2" name="choice" value="choice2">
+                        <label for="radio2">Option 2</label>
+                    </div>
+                </fieldset>
+                
+
+                <!-- Dropdown -->
+                <label for="select-input" class="required">Select an option:</label>
+                <select id="select-input" name="select" required aria-required="true">
+                    <option value="" disabled selected hidden>Choose an option</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                </select>
+                <div class="error-message" id="select-error">Please select an option.</div>
+
+                <!-- Buttons -->
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </article>
+        <aside>
+            <h3>Form Help</h3>
+            <p>If you encounter any issues while filling out the form, please contact support or refer to the hints provided below each input field.</p>
+        </aside>
+    </main>
+    <footer>
+        <p>&copy; 2024 Accessible Forms Inc. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
