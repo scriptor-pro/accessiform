@@ -5,6 +5,8 @@ Did you know there is a input type="month" and an input type="week" you could us
 
 This form was produced with IA assistance. It has been tested for WCAG compliance using Axe DevTools https://www.deque.com/axe/devtools/ 
 
+Tested for compliance and zero errors by siteimprove for WCAG A, WCAG AA and WCG AAA
+
 Next step :
 
 - make sure exactly wich version of WCAG this form is compatible
